@@ -1,0 +1,30 @@
+To use my chroot script, you should have 3 things:
+1st. Rooted phone
+2nd. busybox
+3rd. img file with installed linux on it compatible with your architecture ( look at https://sourceforge.net/projects/linuxonandroid/files/Debian/Image/ for example )
+
+How to use:
+Create folder named linux under /sdcard and then place my scripts from this forlder ( .init is not needed, i made it to just make this dir)
+Then get your linux image, put it in the linux folder and rename it to "linux.img".
+After that install terminal emulator or use adb to get into android shell, then type these commands:
+
+su
+cd /sdcard/linux
+sh install.sh
+
+And now if you don't see errors you are good to go! Type linux in terminal and you will get into chroot shell! If you get error then either dm me or type in issues tab
+
+Q&A:
+
+Q: My phone doesn't have /sdcard . What should I do?
+A: remount / as read-write, then make new folder named sdcard and after that mount either your internal storage or your actual external sd card in it
+
+Q: I get error such as "su: segmentation fault"
+A: Well then you really should find image containing linux distro for your architecture!
+
+Q: My phone is armV6, what can i do?
+A: Well i tested this script on my armV6 samsung, you can use linux distros images compatible with armV6, for example debian or ubuntu 9.10 (ubuntu version>=10 doesn't support armV6!)
+
+Q: I get error "Kernel too old", what should i do?
+A: Search for older linux distro
+
