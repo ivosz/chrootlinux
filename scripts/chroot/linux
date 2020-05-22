@@ -1,0 +1,17 @@
+mount -o remount, rw /
+export PATH=$bin:/usr/bin:/usr/sbin:/bin:$PATH
+export TERM=linux
+export HOME=/root
+export kit=/sdcard/linux
+export bin=/system/bin
+export mnt=/mnt/linux
+
+echo "Starting ..."
+mkdir /mnt/linux
+
+busybox mount -o loop /sdcard/linux/linux.img /mnt/linux
+mkdir /mnt/linux/mnt/sdcard
+busybox mount -o bind /sdcard /mnt/linux/mnt/sdcard
+busybox mount -o bind /proc /mnt/linux/proc
+echo "starting Linux"
+busybox chroot /mnt/linux /bin/bash
