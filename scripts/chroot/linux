@@ -13,5 +13,4 @@ busybox mount -o loop /sdcard/linux/linux.img /mnt/linux
 mkdir /mnt/linux/mnt/sdcard
 busybox mount -o bind /sdcard /mnt/linux/mnt/sdcard
 busybox mount -o bind /proc /mnt/linux/proc
-echo "starting Linux"
 busybox chroot /mnt/linux /bin/bash
